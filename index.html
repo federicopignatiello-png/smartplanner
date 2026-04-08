@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
@@ -11,9 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
   <script>
     if (window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc =
       'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
@@ -55,11 +60,9 @@
     }
     #root { min-height: 100dvh; }
 
-    /* Typography */
     .serif { font-family: var(--font-serif); }
     .mono  { font-family: var(--font-mono); }
 
-    /* Inputs */
     input[type=text],input[type=email],input[type=password],input[type=date] {
       font-family: var(--font-sans); font-size: 15px; color: var(--ink);
       background: var(--white); border: 1.5px solid var(--border-2);
@@ -70,7 +73,6 @@
     input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(192,98,42,0.1); }
     input::placeholder { color: var(--ink-4); }
 
-    /* Buttons */
     .btn {
       display:inline-flex; align-items:center; justify-content:center; gap:7px;
       border:none; border-radius:10px; cursor:pointer;
@@ -89,7 +91,6 @@
     }
     .btn-ghost { background:transparent; color:var(--ink-3); font-size:14px; padding:8px 10px; }
 
-    /* Animations */
     @keyframes fadeUp  { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
     @keyframes slideUp { from{transform:translateY(100%)} to{transform:translateY(0)} }
     @keyframes spin    { to{transform:rotate(360deg)} }
@@ -109,11 +110,9 @@
       animation:spin 0.6s linear infinite; display:inline-block;
     }
 
-    /* Layout */
     .app-shell { max-width:430px; margin:0 auto; min-height:100dvh; background:var(--cream); }
     .page-scroll { overflow-y:auto; padding-bottom:90px; }
 
-    /* Top bar */
     .top-bar {
       position:sticky; top:0; z-index:40;
       background:rgba(247,245,240,0.9); backdrop-filter:blur(14px);
@@ -128,7 +127,6 @@
       color:var(--cream); font-size:14px;
     }
 
-    /* Bottom nav */
     .bottom-nav {
       position:fixed; bottom:0; left:50%; transform:translateX(-50%);
       width:100%; max-width:430px;
@@ -150,7 +148,6 @@
     }
     .nav-btn.active { color:var(--accent); }
 
-    /* Task card */
     .task-card {
       background:var(--white);
       border:1px solid var(--border);
@@ -182,7 +179,6 @@
     .task-title.done { text-decoration:line-through; color:var(--ink-4); }
     .task-meta { display:flex; align-items:center; gap:7px; flex-wrap:wrap; margin-top:5px; }
 
-    /* Chips */
     .chip {
       display:inline-flex; align-items:center; gap:3px;
       padding:2px 7px; border-radius:20px;
@@ -196,7 +192,6 @@
     .chip-pdf     { background:#ede9fe;           color:#5b21b6; }
     .date-label   { font-family:var(--font-mono); font-size:11px; color:var(--ink-3); }
 
-    /* Section */
     .section-hd { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
     .section-title {
       font-family:var(--font-serif); font-size:20px; font-style:italic;
@@ -207,7 +202,6 @@
       background:var(--cream-2); padding:2px 8px; border-radius:20px;
     }
 
-    /* Stats */
     .stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:26px; }
     .stat-box {
       background:var(--white); border:1px solid var(--border);
@@ -222,17 +216,15 @@
       text-transform:uppercase; letter-spacing:0.05em; display:block; margin-top:4px;
     }
 
-    /* Empty state */
     .empty-state {
       text-align:center; padding:30px 20px;
       background:var(--white); border:1px dashed var(--border-2);
       border-radius:14px; color:var(--ink-3); font-size:14px; line-height:1.6;
     }
 
-    /* FAB */
     .fab {
       position:fixed; bottom:76px; right:18px;
-      width:52px; height:52px; max-width:calc(215px);
+      width:52px; height:52px;
       background:var(--ink); color:var(--white);
       border:none; border-radius:50%; z-index:30;
       display:flex; align-items:center; justify-content:center;
@@ -242,7 +234,6 @@
     }
     .fab:active { transform:scale(0.93); }
 
-    /* Modal */
     .modal-overlay { position:fixed; inset:0; z-index:50; background:rgba(0,0,0,0.38); display:flex; align-items:flex-end; }
     .modal-sheet {
       background:var(--cream); width:100%; max-height:88dvh;
@@ -250,7 +241,6 @@
     }
     .modal-handle { width:36px; height:4px; background:var(--cream-3); border-radius:2px; margin:12px auto 22px; }
 
-    /* Drop zone */
     .drop-zone {
       border:2px dashed var(--border-2); border-radius:16px;
       padding:48px 20px; text-align:center; cursor:pointer;
@@ -258,17 +248,14 @@
     }
     .drop-zone:hover, .drop-zone.on { border-color:var(--accent); background:var(--accent-bg); }
 
-    /* Preview item */
     .preview-item {
       background:var(--white); border:1px solid var(--border);
       border-radius:12px; padding:14px; margin-bottom:8px;
     }
     .preview-item input { font-size:14px; padding:9px 12px; border-radius:8px; }
 
-    /* Auth */
     .auth-wrap { min-height:100dvh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:32px 24px; }
 
-    /* Seg control */
     .seg { display:flex; background:var(--cream-2); border-radius:10px; padding:3px; margin-bottom:22px; }
     .seg-btn {
       flex:1; padding:9px; background:transparent; border:none; border-radius:8px;
@@ -278,7 +265,6 @@
     }
     .seg-btn.active { background:var(--white); color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,0.09); }
 
-    /* Filters */
     .filter-row { display:flex; gap:7px; overflow-x:auto; padding-bottom:2px; scrollbar-width:none; margin-bottom:18px; }
     .filter-row::-webkit-scrollbar { display:none; }
     .fpill {
@@ -289,7 +275,6 @@
     }
     .fpill.on { background:var(--ink); color:var(--white); border-color:var(--ink); }
 
-    /* Toast */
     .toast {
       position:fixed; bottom:84px; left:50%; transform:translateX(-50%);
       background:var(--ink); color:var(--white);
@@ -300,7 +285,6 @@
       animation:fadeUp 0.25s var(--ease);
     }
 
-    /* Misc */
     .form-group { display:flex; flex-direction:column; gap:14px; }
     .form-row { display:flex; gap:10px; }
     .form-row>* { flex:1; }
@@ -312,6 +296,7 @@
     ::-webkit-scrollbar { width:3px; }
     ::-webkit-scrollbar-thumb { background:var(--cream-3); border-radius:4px; }
   </style>
+
 </head>
 <body>
 <div id="root"></div>
@@ -319,22 +304,39 @@
 <script type="text/babel">
 const { useState, useEffect, useRef, useCallback } = React;
 
-// ── STORAGE ───────────────────────────────────
-const DB = {
-  users:   ()    => JSON.parse(localStorage.getItem("pl_u")   || "[]"),
-  setU:    (u)   => localStorage.setItem("pl_u",  JSON.stringify(u)),
-  tasks:   (id)  => JSON.parse(localStorage.getItem(`pl_t_${id}`) || "[]"),
-  setT:    (id,t)=> localStorage.setItem(`pl_t_${id}`, JSON.stringify(t)),
-  me:      ()    => JSON.parse(localStorage.getItem("pl_me")  || "null"),
-  setMe:   (u)   => localStorage.setItem("pl_me", JSON.stringify(u)),
-  logout:  ()    => localStorage.removeItem("pl_me"),
+// ─────────────────────────────────────────────
+// CONFIG — cambia solo qui
+// ─────────────────────────────────────────────
+const CONFIG = {
+  // URL del tuo Cloudflare Worker (proxy sicuro)
+  WORKER_URL: "https://workerai.federicopignatiello.workers.dev",
+
+  // Telegram
+  TG_TOKEN: "8799223755:AAHFExFqyKnvapg6khfNU5FU1e3_ShgEhCU",
+  TG_CHAT:  "1775580628",
 };
 
-const uid     = () => `${Date.now()}-${Math.random().toString(36).slice(2,6)}`;
-const todayS  = () => new Date().toISOString().split("T")[0];
-const fmtDate = d => d ? new Date(d+"T00:00:00").toLocaleDateString("it-IT",{day:"numeric",month:"short"}) : null;
+// ─────────────────────────────────────────────
+// STORAGE
+// ─────────────────────────────────────────────
+const DB = {
+  users: ()      => JSON.parse(localStorage.getItem("pl_u")        || "[]"),
+  setU:  (u)     => localStorage.setItem("pl_u",  JSON.stringify(u)),
+  tasks: (id)    => JSON.parse(localStorage.getItem(`pl_t_${id}`)  || "[]"),
+  setT:  (id, t) => localStorage.setItem(`pl_t_${id}`, JSON.stringify(t)),
+  me:    ()      => JSON.parse(localStorage.getItem("pl_me")       || "null"),
+  setMe: (u)     => localStorage.setItem("pl_me", JSON.stringify(u)),
+  logout:()      => localStorage.removeItem("pl_me"),
+};
+
+// ─────────────────────────────────────────────
+// UTILS
+// ─────────────────────────────────────────────
+const uid      = () => `${Date.now()}-${Math.random().toString(36).slice(2,6)}`;
+const todayS   = () => new Date().toISOString().split("T")[0];
+const fmtDate  = d  => d ? new Date(d+"T00:00:00").toLocaleDateString("it-IT",{day:"numeric",month:"short"}) : null;
 const classify = (date, status) => {
-  if (status==="completed") return "done";
+  if (status === "completed") return "done";
   if (!date) return "soon";
   const t = todayS();
   return date < t ? "overdue" : date === t ? "today" : "soon";
@@ -342,76 +344,105 @@ const classify = (date, status) => {
 const HOUR = new Date().getHours();
 const gday = HOUR<5?"Buonanotte":HOUR<12?"Buongiorno":HOUR<18?"Buon pomeriggio":"Buonasera";
 
-// ── AI ────────────────────────────────────────
-async function parsePDF(text, name) {
-  const yr = new Date().getFullYear();
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({
-      model:"claude-sonnet-4-20250514", max_tokens:1000,
-      system:`Task extractor. Return ONLY a JSON array. Each item: {"task":string,"date":"YYYY-MM-DD or null","phase":"string or null"}`,
-      messages:[{role:"user",content:
-        `Extract tasks for "${name}" from this document. Year=${yr}. Return [] if nothing found.\n\n"""\n${text.slice(0,5000)}\n"""`
-      }]
-    })
+// ─────────────────────────────────────────────
+// TELEGRAM
+// ─────────────────────────────────────────────
+async function sendTelegram(text) {
+  try {
+    await fetch(`https://api.telegram.org/bot${CONFIG.TG_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: CONFIG.TG_CHAT, text }),
+    });
+  } catch (e) {
+    console.warn("Telegram error:", e);
+  }
+}
+
+// ─────────────────────────────────────────────
+// AI — chiama il Worker (proxy sicuro)
+// ─────────────────────────────────────────────
+async function callAI(prompt, system) {
+  const res = await fetch(CONFIG.WORKER_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt, system }),
   });
+  if (!res.ok) throw new Error(`Worker error: ${res.status}`);
   const data = await res.json();
-  const raw = (data.content||[]).find(b=>b.type==="text")?.text||"[]";
-  try { return JSON.parse(raw.replace(/```json|```/g,"").trim()); } catch { return []; }
+  return data.content?.[0]?.text || "";
 }
 
 async function extractText(file) {
-  return new Promise((res,rej) => {
+  return new Promise((res, rej) => {
     const r = new FileReader();
     r.onload = async e => {
       try {
         if (!window.pdfjsLib) { res(`[no pdf.js] ${file.name}`); return; }
-        const pdf = await pdfjsLib.getDocument({data:new Uint8Array(e.target.result)}).promise;
+        const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(e.target.result) }).promise;
         let t = "";
-        for (let i=1;i<=pdf.numPages;i++) {
+        for (let i = 1; i <= pdf.numPages; i++) {
           const page = await pdf.getPage(i);
-          const c = await page.getTextContent();
-          t += c.items.map(s=>s.str).join(" ")+"\n";
+          const c    = await page.getTextContent();
+          t += c.items.map(s => s.str).join(" ") + "\n";
         }
         res(t);
-      } catch(e){rej(e);}
+      } catch(e) { rej(e); }
     };
     r.readAsArrayBuffer(file);
   });
 }
 
-// ── ICONS ─────────────────────────────────────
-const CheckIc = ()=><svg width="11"height="11"viewBox="0 0 12 12"fill="none"stroke="white"strokeWidth="2.5"strokeLinecap="round"strokeLinejoin="round"><polyline points="1.5 6 4.5 9 10.5 3"/></svg>;
-const PlusIc  = ()=><svg width="20"height="20"viewBox="0 0 24 24"fill="none"stroke="currentColor"strokeWidth="2.5"strokeLinecap="round"><line x1="12"y1="5"x2="12"y2="19"/><line x1="5"y1="12"x2="19"y2="12"/></svg>;
-const TodayIc = ()=><svg width="19"height="19"viewBox="0 0 24 24"fill="none"stroke="currentColor"strokeWidth="2"strokeLinecap="round"><rect x="3"y="4"width="18"height="18"rx="2"/><line x1="16"y1="2"x2="16"y2="6"/><line x1="8"y1="2"x2="8"y2="6"/><line x1="3"y1="10"x2="21"y2="10"/></svg>;
-const ListIc  = ()=><svg width="19"height="19"viewBox="0 0 24 24"fill="none"stroke="currentColor"strokeWidth="2"strokeLinecap="round"><line x1="9"y1="6"x2="20"y2="6"/><line x1="9"y1="12"x2="20"y2="12"/><line x1="9"y1="18"x2="20"y2="18"/><circle cx="4"cy="6"r="1.5"fill="currentColor"/><circle cx="4"cy="12"r="1.5"fill="currentColor"/><circle cx="4"cy="18"r="1.5"fill="currentColor"/></svg>;
-const PDFIc   = ()=><svg width="19"height="19"viewBox="0 0 24 24"fill="none"stroke="currentColor"strokeWidth="2"strokeLinecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>;
-const TrashIc = ()=><svg width="14"height="14"viewBox="0 0 24 24"fill="none"stroke="currentColor"strokeWidth="2"strokeLinecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>;
-const LogoutIc= ()=><svg width="17"height="17"viewBox="0 0 24 24"fill="none"stroke="currentColor"strokeWidth="2"strokeLinecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21"y1="12"x2="9"y2="12"/></svg>;
-const UpIc    = ()=><svg width="30"height="30"viewBox="0 0 24 24"fill="none"stroke="currentColor"strokeWidth="1.5"strokeLinecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12"y1="3"x2="12"y2="15"/></svg>;
+async function parsePDF(text, name) {
+  const yr = new Date().getFullYear();
+  const system = `Task extractor. Return ONLY a JSON array. Each item: {"task":string,"date":"YYYY-MM-DD or null","phase":"string or null"}`;
+  const prompt  = `Extract tasks for "${name}" from this document. Year=${yr}. Return [] if nothing found.\n\n"""\n${text.slice(0,5000)}\n"""`;
+  try {
+    const raw = await callAI(prompt, system);
+    return JSON.parse(raw.replace(/```json|```/g,"").trim());
+  } catch { return []; }
+}
 
-// ── TASK CARD ─────────────────────────────────
-function TaskCard({ task, onToggle, onDelete, delay=0 }) {
+// ─────────────────────────────────────────────
+// ICONS
+// ─────────────────────────────────────────────
+const CheckIc = () => <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="1.5 6 4.5 9 10.5 3"/></svg>;
+const PlusIc  = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>;
+const TodayIc = () => <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>;
+const ListIc  = () => <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="4" cy="6" r="1.5" fill="currentColor"/><circle cx="4" cy="12" r="1.5" fill="currentColor"/><circle cx="4" cy="18" r="1.5" fill="currentColor"/></svg>;
+const PDFIc   = () => <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>;
+const TrashIc = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>;
+const LogoutIc= () => <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>;
+const UpIc    = () => <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>;
+
+// ─────────────────────────────────────────────
+// TASK CARD
+// ─────────────────────────────────────────────
+function TaskCard({ task, onToggle, onDelete, delay = 0 }) {
   const s = classify(task.date, task.status);
-  const chipMap={today:{cls:"chip-today",lbl:"Oggi"},overdue:{cls:"chip-overdue",lbl:"Scaduto"},soon:{cls:"chip-soon",lbl:"In arrivo"},done:{cls:"chip-done",lbl:"Fatto"}};
+  const chipMap = {
+    today:   { cls:"chip-today",   lbl:"Oggi" },
+    overdue: { cls:"chip-overdue", lbl:"Scaduto" },
+    soon:    { cls:"chip-soon",    lbl:"In arrivo" },
+    done:    { cls:"chip-done",    lbl:"Fatto" },
+  };
   const ch = chipMap[s];
   return (
-    <div className={`task-card ${s} anim-fade-up`} style={{animationDelay:`${delay}ms`}}>
-      <div style={{display:"flex",alignItems:"flex-start",gap:"13px"}}>
-        <div className={`task-check ${task.status==="completed"?"checked":""}`} onClick={()=>onToggle(task.id)}>
-          {task.status==="completed"&&<CheckIc/>}
+    <div className={`task-card ${s} anim-fade-up`} style={{ animationDelay:`${delay}ms` }}>
+      <div style={{ display:"flex", alignItems:"flex-start", gap:"13px" }}>
+        <div className={`task-check ${task.status==="completed"?"checked":""}`} onClick={() => onToggle(task.id)}>
+          {task.status === "completed" && <CheckIc/>}
         </div>
-        <div style={{flex:1,minWidth:0}}>
+        <div style={{ flex:1, minWidth:0 }}>
           <p className={`task-title ${task.status==="completed"?"done":""}`}>{task.title}</p>
           <div className="task-meta">
             <span className={`chip ${ch.cls}`}>{ch.lbl}</span>
-            {fmtDate(task.date)&&<span className="date-label">{fmtDate(task.date)}</span>}
-            {task.phase&&<span style={{fontSize:"12px",color:"var(--ink-4)"}}>· {task.phase}</span>}
-            {task.created_from_pdf&&<span className="chip chip-pdf">PDF</span>}
+            {fmtDate(task.date) && <span className="date-label">{fmtDate(task.date)}</span>}
+            {task.phase && <span style={{ fontSize:"12px", color:"var(--ink-4)" }}>· {task.phase}</span>}
+            {task.created_from_pdf && <span className="chip chip-pdf">PDF</span>}
           </div>
         </div>
-        <button className="btn btn-ghost" onClick={()=>onDelete(task.id)} style={{padding:"5px",marginTop:"-1px",opacity:0.45,borderRadius:"8px"}}>
+        <button className="btn btn-ghost" onClick={() => onDelete(task.id)} style={{ padding:"5px", marginTop:"-1px", opacity:0.45, borderRadius:"8px" }}>
           <TrashIc/>
         </button>
       </div>
@@ -419,53 +450,59 @@ function TaskCard({ task, onToggle, onDelete, delay=0 }) {
   );
 }
 
-// ── AUTH ──────────────────────────────────────
+// ─────────────────────────────────────────────
+// AUTH
+// ─────────────────────────────────────────────
 function Auth({ onLogin }) {
-  const [mode,setMode]=useState("login");
-  const [name,setName]=useState(""); const [email,setEmail]=useState("");
-  const [pass,setPass]=useState(""); const [err,setErr]=useState("");
+  const [mode, setMode]   = useState("login");
+  const [name, setName]   = useState("");
+  const [email, setEmail] = useState("");
+  const [pass, setPass]   = useState("");
+  const [err, setErr]     = useState("");
 
   const submit = () => {
     setErr("");
     const users = DB.users();
-    if (mode==="register") {
-      if (!name.trim()||!email.trim()||!pass.trim()){setErr("Compila tutti i campi.");return;}
-      if (users.find(u=>u.email===email.toLowerCase())){setErr("Email già registrata.");return;}
-      const u={id:uid(),name:name.trim(),email:email.toLowerCase(),password:pass};
-      DB.setU([...users,u]); DB.setMe(u); onLogin(u);
+    if (mode === "register") {
+      if (!name.trim() || !email.trim() || !pass.trim()) { setErr("Compila tutti i campi."); return; }
+      if (users.find(u => u.email === email.toLowerCase())) { setErr("Email già registrata."); return; }
+      const u = { id:uid(), name:name.trim(), email:email.toLowerCase(), password:pass };
+      DB.setU([...users, u]); DB.setMe(u); onLogin(u);
     } else {
-      if (!email.trim()||!pass.trim()){setErr("Inserisci email e password.");return;}
-      const u=users.find(u=>u.email===email.toLowerCase()&&u.password===pass);
-      if(!u){setErr("Credenziali non valide.");return;}
+      if (!email.trim() || !pass.trim()) { setErr("Inserisci email e password."); return; }
+      const u = users.find(u => u.email === email.toLowerCase() && u.password === pass);
+      if (!u) { setErr("Credenziali non valide."); return; }
       DB.setMe(u); onLogin(u);
     }
   };
 
   return (
     <div className="auth-wrap">
-      <div style={{width:"100%",maxWidth:"360px"}} className="anim-fade-up">
-        <div style={{textAlign:"center",marginBottom:"44px"}}>
-          <div style={{width:54,height:54,background:"var(--ink)",borderRadius:15,display:"flex",alignItems:"center",justifyContent:"center",color:"var(--cream)",fontSize:21,margin:"0 auto 14px"}}>◈</div>
-          <h1 className="serif" style={{fontSize:"34px",fontStyle:"italic",fontWeight:400}}>Planner</h1>
-          <p style={{color:"var(--ink-3)",fontSize:"14px",marginTop:"4px"}}>Il tuo piano personale</p>
+      <div style={{ width:"100%", maxWidth:"360px" }} className="anim-fade-up">
+        <div style={{ textAlign:"center", marginBottom:"44px" }}>
+          <div style={{ width:54, height:54, background:"var(--ink)", borderRadius:15, display:"flex", alignItems:"center", justifyContent:"center", color:"var(--cream)", fontSize:21, margin:"0 auto 14px" }}>◈</div>
+          <h1 className="serif" style={{ fontSize:"34px", fontStyle:"italic", fontWeight:400 }}>Planner</h1>
+          <p style={{ color:"var(--ink-3)", fontSize:"14px", marginTop:"4px" }}>Il tuo piano personale</p>
         </div>
         <div className="seg">
-          {["login","register"].map(m=>(
-            <button key={m} className={`seg-btn ${mode===m?"active":""}`} onClick={()=>{setMode(m);setErr("");}}>
-              {m==="login"?"Accedi":"Registrati"}
+          {["login","register"].map(m => (
+            <button key={m} className={`seg-btn ${mode===m?"active":""}`} onClick={() => { setMode(m); setErr(""); }}>
+              {m === "login" ? "Accedi" : "Registrati"}
             </button>
           ))}
         </div>
         <div className="form-group">
-          {mode==="register"&&<div><label>Nome completo</label><input type="text" placeholder="Mario Rossi" value={name} onChange={e=>setName(e.target.value)}/></div>}
-          <div><label>Email</label><input type="email" placeholder="mario@email.com" value={email} onChange={e=>setEmail(e.target.value)}/></div>
-          <div><label>Password</label><input type="password" placeholder="••••••••" value={pass} onChange={e=>setPass(e.target.value)} onKeyDown={e=>e.key==="Enter"&&submit()}/></div>
-          {err&&<div style={{background:"var(--danger-bg)",color:"var(--danger)",padding:"11px 14px",borderRadius:"10px",fontSize:"13px"}}>{err}</div>}
-          <button className="btn btn-ink" onClick={submit} style={{marginTop:"2px"}}>{mode==="login"?"Accedi →":"Crea account →"}</button>
+          {mode === "register" && (
+            <div><label>Nome completo</label><input type="text" placeholder="Mario Rossi" value={name} onChange={e => setName(e.target.value)}/></div>
+          )}
+          <div><label>Email</label><input type="email" placeholder="mario@email.com" value={email} onChange={e => setEmail(e.target.value)}/></div>
+          <div><label>Password</label><input type="password" placeholder="••••••••" value={pass} onChange={e => setPass(e.target.value)} onKeyDown={e => e.key === "Enter" && submit()}/></div>
+          {err && <div style={{ background:"var(--danger-bg)", color:"var(--danger)", padding:"11px 14px", borderRadius:"10px", fontSize:"13px" }}>{err}</div>}
+          <button className="btn btn-ink" onClick={submit} style={{ marginTop:"2px" }}>{mode === "login" ? "Accedi →" : "Crea account →"}</button>
         </div>
-        <div style={{marginTop:"28px",background:"var(--white)",border:"1px solid var(--border)",borderRadius:"12px",padding:"16px"}}>
-          <p style={{fontSize:"12px",color:"var(--ink-3)",lineHeight:1.7}}>
-            <span className="mono" style={{color:"var(--accent)",fontWeight:500}}>DEMO</span> — Registrati come "Mario Rossi" e carica un PDF con sezioni per nome.
+        <div style={{ marginTop:"28px", background:"var(--white)", border:"1px solid var(--border)", borderRadius:"12px", padding:"16px" }}>
+          <p style={{ fontSize:"12px", color:"var(--ink-3)", lineHeight:1.7 }}>
+            <span className="mono" style={{ color:"var(--accent)", fontWeight:500 }}>DEMO</span> — Registrati e carica un PDF con sezioni per nome per estrarre le attività.
           </p>
         </div>
       </div>
@@ -473,43 +510,48 @@ function Auth({ onLogin }) {
   );
 }
 
-// ── DASHBOARD ─────────────────────────────────
+// ─────────────────────────────────────────────
+// DASHBOARD
+// ─────────────────────────────────────────────
 function Dashboard({ user, tasks, onToggle, onDelete, onAddTask }) {
-  const [modal,setModal]=useState(false);
-  const [title,setTitle]=useState(""); const [date,setDate]=useState("");
+  const [modal, setModal] = useState(false);
+  const [title, setTitle] = useState("");
+  const [date,  setDate]  = useState("");
 
-  const todayT   = tasks.filter(t=>t.status!=="completed"&&classify(t.date,t.status)==="today");
-  const overdueT = tasks.filter(t=>t.status!=="completed"&&classify(t.date,t.status)==="overdue");
-  const soonT    = tasks.filter(t=>t.status!=="completed"&&classify(t.date,t.status)==="soon").sort((a,b)=>(a.date||"z").localeCompare(b.date||"z")).slice(0,6);
-  const doneC    = tasks.filter(t=>t.status==="completed").length;
+  const todayT   = tasks.filter(t => t.status !== "completed" && classify(t.date, t.status) === "today");
+  const overdueT = tasks.filter(t => t.status !== "completed" && classify(t.date, t.status) === "overdue");
+  const soonT    = tasks.filter(t => t.status !== "completed" && classify(t.date, t.status) === "soon")
+                        .sort((a,b) => (a.date||"z").localeCompare(b.date||"z")).slice(0,6);
+  const doneC    = tasks.filter(t => t.status === "completed").length;
 
   const doAdd = () => {
     if (!title.trim()) return;
-    onAddTask({title:title.trim(),date:date||null,phase:null,created_from_pdf:false});
+    const newTask = { title:title.trim(), date:date||null, phase:null, created_from_pdf:false };
+    onAddTask(newTask);
+    sendTelegram(`📌 Nuovo task: "${newTask.title}"${newTask.date ? " · " + fmtDate(newTask.date) : ""}`);
     setTitle(""); setDate(""); setModal(false);
   };
 
   return (
     <>
-      {/* Greeting */}
-      <div style={{padding:"22px 18px 18px"}}>
-        <p className="mono" style={{fontSize:"11px",color:"var(--ink-3)",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:"4px"}}>
-          {new Date().toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"})}
+      <div style={{ padding:"22px 18px 18px" }}>
+        <p className="mono" style={{ fontSize:"11px", color:"var(--ink-3)", textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:"4px" }}>
+          {new Date().toLocaleDateString("it-IT", { weekday:"long", day:"numeric", month:"long" })}
         </p>
-        <h2 className="serif" style={{fontSize:"30px",fontStyle:"italic",lineHeight:1.1}}>
+        <h2 className="serif" style={{ fontSize:"30px", fontStyle:"italic", lineHeight:1.1 }}>
           {gday}, {user.name.split(" ")[0]}
         </h2>
       </div>
 
-      <div style={{padding:"0 18px"}}>
+      <div style={{ padding:"0 18px" }}>
         {/* Stats */}
         <div className="stats-row">
           <div className="stat-box">
-            <span className="stat-num" style={{color:todayT.length>0?"var(--accent)":"var(--ink)"}}>{todayT.length}</span>
+            <span className="stat-num" style={{ color: todayT.length > 0 ? "var(--accent)" : "var(--ink)" }}>{todayT.length}</span>
             <span className="stat-lbl">Oggi</span>
           </div>
           <div className="stat-box">
-            <span className="stat-num" style={{color:overdueT.length>0?"var(--danger)":"var(--ink)"}}>{overdueT.length}</span>
+            <span className="stat-num" style={{ color: overdueT.length > 0 ? "var(--danger)" : "var(--ink)" }}>{overdueT.length}</span>
             <span className="stat-lbl">Scaduti</span>
           </div>
           <div className="stat-box">
@@ -519,67 +561,67 @@ function Dashboard({ user, tasks, onToggle, onDelete, onAddTask }) {
         </div>
 
         {/* Overdue */}
-        {overdueT.length>0&&(
-          <div style={{marginBottom:"26px"}}>
+        {overdueT.length > 0 && (
+          <div style={{ marginBottom:"26px" }}>
             <div className="section-hd">
-              <span className="section-title" style={{color:"var(--danger)",fontSize:"18px"}}>⚠ Scaduti</span>
+              <span className="section-title" style={{ color:"var(--danger)", fontSize:"18px" }}>⚠ Scaduti</span>
               <span className="section-count">{overdueT.length}</span>
             </div>
-            <div style={{display:"flex",flexDirection:"column",gap:"8px"}} className="stagger">
-              {overdueT.map((t,i)=><TaskCard key={t.id} task={t} onToggle={onToggle} onDelete={onDelete} delay={i*40}/>)}
+            <div style={{ display:"flex", flexDirection:"column", gap:"8px" }} className="stagger">
+              {overdueT.map((t,i) => <TaskCard key={t.id} task={t} onToggle={onToggle} onDelete={onDelete} delay={i*40}/>)}
             </div>
           </div>
         )}
 
         {/* Today */}
-        <div style={{marginBottom:"26px"}}>
+        <div style={{ marginBottom:"26px" }}>
           <div className="section-hd">
             <span className="section-title">Oggi</span>
-            {todayT.length>0&&<span className="section-count">{todayT.length}</span>}
+            {todayT.length > 0 && <span className="section-count">{todayT.length}</span>}
           </div>
-          {todayT.length===0
-            ? <div className="empty-state"><div style={{fontSize:"26px",marginBottom:"8px"}}>✓</div>Tutto libero per oggi</div>
-            : <div style={{display:"flex",flexDirection:"column",gap:"8px"}} className="stagger">
-                {todayT.map((t,i)=><TaskCard key={t.id} task={t} onToggle={onToggle} onDelete={onDelete} delay={i*40}/>)}
+          {todayT.length === 0
+            ? <div className="empty-state"><div style={{ fontSize:"26px", marginBottom:"8px" }}>✓</div>Tutto libero per oggi</div>
+            : <div style={{ display:"flex", flexDirection:"column", gap:"8px" }} className="stagger">
+                {todayT.map((t,i) => <TaskCard key={t.id} task={t} onToggle={onToggle} onDelete={onDelete} delay={i*40}/>)}
               </div>
           }
         </div>
 
         {/* Soon */}
-        {soonT.length>0&&(
-          <div style={{marginBottom:"16px"}}>
+        {soonT.length > 0 && (
+          <div style={{ marginBottom:"16px" }}>
             <div className="section-hd">
               <span className="section-title">In arrivo</span>
               <span className="section-count">{soonT.length}</span>
             </div>
-            <div style={{display:"flex",flexDirection:"column",gap:"8px"}} className="stagger">
-              {soonT.map((t,i)=><TaskCard key={t.id} task={t} onToggle={onToggle} onDelete={onDelete} delay={i*40}/>)}
+            <div style={{ display:"flex", flexDirection:"column", gap:"8px" }} className="stagger">
+              {soonT.map((t,i) => <TaskCard key={t.id} task={t} onToggle={onToggle} onDelete={onDelete} delay={i*40}/>)}
             </div>
           </div>
         )}
 
-        {tasks.length===0&&(
+        {tasks.length === 0 && (
           <div className="empty-state">
-            <div style={{fontSize:"26px",marginBottom:"8px"}}>📋</div>
+            <div style={{ fontSize:"26px", marginBottom:"8px" }}>📋</div>
             Aggiungi attività o carica un PDF per iniziare
           </div>
         )}
       </div>
 
       {/* FAB */}
-      <button className="fab" onClick={()=>setModal(true)} aria-label="Nuova attività"><PlusIc/></button>
+      <button className="fab" onClick={() => setModal(true)} aria-label="Nuova attività"><PlusIc/></button>
 
       {/* Modal */}
-      {modal&&(
-        <div className="modal-overlay" onClick={e=>e.target===e.currentTarget&&setModal(false)}>
+      {modal && (
+        <div className="modal-overlay" onClick={e => e.target === e.currentTarget && setModal(false)}>
           <div className="modal-sheet anim-slide-up">
             <div className="modal-handle"/>
-            <h3 className="serif" style={{fontSize:"24px",fontStyle:"italic",marginBottom:"22px"}}>Nuova attività</h3>
+            <h3 className="serif" style={{ fontSize:"24px", fontStyle:"italic", marginBottom:"22px" }}>Nuova attività</h3>
             <div className="form-group">
-              <div><label>Titolo</label><input type="text" placeholder="Cosa devi fare?" value={title} onChange={e=>setTitle(e.target.value)} autoFocus/></div>
-              <div><label>Data (opzionale)</label><input type="date" value={date} onChange={e=>setDate(e.target.value)}/></div>
-              <div className="form-row" style={{marginTop:"4px"}}>
-                <button className="btn btn-outline" onClick={()=>setModal(false)}>Annulla</button>
+              <div><label>Titolo</label><input type="text" placeholder="Cosa devi fare?" value={title} onChange={e => setTitle(e.target.value)} autoFocus/></div>
+              <div><label>Data (opzionale)</label><input type="date" value={date} onChange={e => setDate(e.target.value)}/></div>
+              <div className="form-row" style={{ marginTop:"4px" }}>
+                <button className="btn btn-outline" onClick={() => setModal(false)}>Annulla</button>
                 <button className="btn btn-accent" onClick={doAdd} disabled={!title.trim()}>Aggiungi</button>
               </div>
             </div>
@@ -590,336 +632,245 @@ function Dashboard({ user, tasks, onToggle, onDelete, onAddTask }) {
   );
 }
 
-// ── ALL TASKS ─────────────────────────────────
+// ─────────────────────────────────────────────
+// ALL TASKS
+// ─────────────────────────────────────────────
 function AllTasks({ tasks, onToggle, onDelete }) {
-  const [f,setF]=useState("all");
-  const fns={all:()=>true,pending:t=>t.status!=="completed",completed:t=>t.status==="completed",pdf:t=>t.created_from_pdf};
-  const list=tasks.filter(fns[f]).sort((a,b)=>{if(!a.date&&!b.date)return 0;if(!a.date)return 1;if(!b.date)return-1;return a.date.localeCompare(b.date);});
+  const [f, setF] = useState("all");
+  const fns = {
+    all:       () => true,
+    pending:   t  => t.status !== "completed",
+    completed: t  => t.status === "completed",
+    pdf:       t  => t.created_from_pdf,
+  };
+  const list = tasks.filter(fns[f]).sort((a,b) => {
+    if (!a.date && !b.date) return 0;
+    if (!a.date) return 1;
+    if (!b.date) return -1;
+    return a.date.localeCompare(b.date);
+  });
   return (
-    <div style={{padding:"22px 18px 100px"}}>
-      <h2 className="serif" style={{fontSize:"28px",fontStyle:"italic",marginBottom:"18px"}}>Attività</h2>
+    <div style={{ padding:"22px 18px 100px" }}>
+      <h2 className="serif" style={{ fontSize:"28px", fontStyle:"italic", marginBottom:"18px" }}>Attività</h2>
       <div className="filter-row">
-        {[["all","Tutte"],["pending","Da fare"],["completed","Fatte"],["pdf","Da PDF"]].map(([k,l])=>(
-          <button key={k} className={`fpill ${f===k?"on":""}`} onClick={()=>setF(k)}>{l}</button>
+        {[["all","Tutte"],["pending","Da fare"],["completed","Fatte"],["pdf","Da PDF"]].map(([k,l]) => (
+          <button key={k} className={`fpill ${f===k?"on":""}`} onClick={() => setF(k)}>{l}</button>
         ))}
       </div>
-      {list.length===0
-        ? <div className="empty-state"><div style={{fontSize:"26px",marginBottom:"8px"}}>🫥</div>Nessuna attività</div>
-        : <div style={{display:"flex",flexDirection:"column",gap:"8px"}} className="stagger">
-            {list.map((t,i)=><TaskCard key={t.id} task={t} onToggle={onToggle} onDelete={onDelete} delay={i*30}/>)}
+      {list.length === 0
+        ? <div className="empty-state"><div style={{ fontSize:"26px", marginBottom:"8px" }}>🫥</div>Nessuna attività</div>
+        : <div style={{ display:"flex", flexDirection:"column", gap:"8px" }} className="stagger">
+            {list.map((t,i) => <TaskCard key={t.id} task={t} onToggle={onToggle} onDelete={onDelete} delay={i*30}/>)}
           </div>
       }
     </div>
   );
 }
 
-// ── PDF VIEW ──────────────────────────────────
+// ─────────────────────────────────────────────
+// PDF VIEW
+// ─────────────────────────────────────────────
 function PDFView({ user, onConfirmed }) {
-  const [stage,setStage]=useState("upload");
-  const [drag,setDrag]=useState(false);
-  const [msg,setMsg]=useState("");
-  const [err,setErr]=useState("");
-  const [items,setItems]=useState([]);
-  const fRef=useRef();
+  const [stage, setStage] = useState("upload");
+  const [drag,  setDrag]  = useState(false);
+  const [msg,   setMsg]   = useState("");
+  const [err,   setErr]   = useState("");
+  const [items, setItems] = useState([]);
+  const fRef = useRef();
 
   const process = async file => {
-    if (!file||file.type!=="application/pdf"){setErr("Serve un file .pdf");return;}
+    if (!file || file.type !== "application/pdf") { setErr("Serve un file .pdf"); return; }
     setErr(""); setStage("proc");
     try {
       setMsg("Estrazione testo…");
-      const text = await extractText(file);
+      const text   = await extractText(file);
       setMsg(`Cerco attività per "${user.name}"…`);
       const parsed = await parsePDF(text, user.name);
-      setItems(parsed.map(i=>({id:uid(),title:i.task||"",date:i.date||"",phase:i.phase||"",status:"pending",created_from_pdf:true})));
+      setItems(parsed.map(i => ({
+        id: uid(), title: i.task||"", date: i.date||"",
+        phase: i.phase||"", status:"pending", created_from_pdf:true,
+      })));
       setStage("preview");
-    } catch { setErr("Errore. Riprova."); setStage("upload"); }
+    } catch {
+      setErr("Errore. Controlla che il Worker sia online e riprova.");
+      setStage("upload");
+    }
   };
 
-  const upd = (id,f,v)=>setItems(p=>p.map(t=>t.id===id?{...t,[f]:v}:t));
-  const del = id=>setItems(p=>p.filter(t=>t.id!==id));
-  const confirm = ()=>{
-    const valid=items.filter(t=>t.title.trim());
+  const upd     = (id,f,v) => setItems(p => p.map(t => t.id===id ? {...t,[f]:v} : t));
+  const del     = id       => setItems(p => p.filter(t => t.id!==id));
+  const confirm = ()       => {
+    const valid = items.filter(t => t.title.trim());
     onConfirmed(valid); setStage("upload"); setItems([]);
   };
 
-  if (stage==="proc") return (
-    <div style={{minHeight:"65vh",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:"18px",padding:"40px"}}>
-      <div style={{width:60,height:60,background:"var(--ink)",borderRadius:16,display:"flex",alignItems:"center",justifyContent:"center"}}>
+  if (stage === "proc") return (
+    <div style={{ minHeight:"65vh", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:"18px", padding:"40px" }}>
+      <div style={{ width:60, height:60, background:"var(--ink)", borderRadius:16, display:"flex", alignItems:"center", justifyContent:"center" }}>
         <div className="spinner"/>
       </div>
-      <div style={{textAlign:"center"}}>
-        <h3 className="serif" style={{fontSize:"22px",fontStyle:"italic",marginBottom:"6px"}}>Analisi</h3>
-        <p style={{color:"var(--ink-3)",fontSize:"14px"}}>{msg}</p>
+      <div style={{ textAlign:"center" }}>
+        <h3 className="serif" style={{ fontSize:"22px", fontStyle:"italic", marginBottom:"6px" }}>Analisi</h3>
+        <p style={{ color:"var(--ink-3)", fontSize:"14px" }}>{msg}</p>
       </div>
     </div>
   );
 
-  if (stage==="preview") return (
-    <div style={{padding:"22px 18px 100px"}}>
-      <p className="mono" style={{fontSize:"10px",color:"var(--accent)",textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:"3px"}}>Anteprima</p>
-      <h2 className="serif" style={{fontSize:"26px",fontStyle:"italic"}}>Trovato per</h2>
-      <h2 className="serif" style={{fontSize:"26px",fontStyle:"italic",color:"var(--accent)",marginBottom:"22px"}}>{user.name}</h2>
-      {items.length===0
-        ? <div className="empty-state" style={{marginBottom:"18px"}}><div style={{fontSize:"26px",marginBottom:"8px"}}>🔍</div>Nessuna attività.<br/>Verifica il nome nel PDF.</div>
-        : <div style={{marginBottom:"12px"}}>
-            {items.map((t,i)=>(
-              <div key={t.id} className="preview-item anim-fade-up" style={{animationDelay:`${i*40}ms`}}>
-                <div style={{display:"flex",justifyContent:"space-between",marginBottom:"10px"}}>
-                  <span className="mono" style={{fontSize:"10px",color:"var(--ink-4)"}}>#{i+1}</span>
-                  <button className="btn btn-ghost" onClick={()=>del(t.id)} style={{padding:"3px",opacity:0.5}}><TrashIc/></button>
+  if (stage === "preview") return (
+    <div style={{ padding:"22px 18px 100px" }}>
+      <p className="mono" style={{ fontSize:"10px", color:"var(--accent)", textTransform:"uppercase", letterSpacing:"0.08em", marginBottom:"3px" }}>Anteprima</p>
+      <h2 className="serif" style={{ fontSize:"26px", fontStyle:"italic" }}>Trovato per</h2>
+      <h2 className="serif" style={{ fontSize:"26px", fontStyle:"italic", color:"var(--accent)", marginBottom:"22px" }}>{user.name}</h2>
+      {items.length === 0
+        ? <div className="empty-state" style={{ marginBottom:"18px" }}><div style={{ fontSize:"26px", marginBottom:"8px" }}>🔍</div>Nessuna attività.<br/>Verifica il nome nel PDF.</div>
+        : <div style={{ marginBottom:"12px" }}>
+            {items.map((t,i) => (
+              <div key={t.id} className="preview-item anim-fade-up" style={{ animationDelay:`${i*40}ms` }}>
+                <div style={{ display:"flex", justifyContent:"space-between", marginBottom:"10px" }}>
+                  <span className="mono" style={{ fontSize:"10px", color:"var(--ink-4)" }}>#{i+1}</span>
+                  <button className="btn btn-ghost" onClick={() => del(t.id)} style={{ padding:"3px", opacity:0.5 }}><TrashIc/></button>
                 </div>
-                <input type="text" placeholder="Titolo" value={t.title} onChange={e=>upd(t.id,"title",e.target.value)} style={{marginBottom:"8px"}}/>
+                <input type="text" placeholder="Titolo" value={t.title} onChange={e => upd(t.id,"title",e.target.value)} style={{ marginBottom:"8px" }}/>
                 <div className="form-row">
-                  <input type="date" value={t.date} onChange={e=>upd(t.id,"date",e.target.value)}/>
-                  <input type="text" placeholder="Fase" value={t.phase} onChange={e=>upd(t.id,"phase",e.target.value)}/>
+                  <input type="date" value={t.date} onChange={e => upd(t.id,"date",e.target.value)}/>
+                  <input type="text" placeholder="Fase" value={t.phase} onChange={e => upd(t.id,"phase",e.target.value)}/>
                 </div>
               </div>
             ))}
           </div>
       }
-      <button className="btn btn-outline" onClick={()=>setItems(p=>[...p,{id:uid(),title:"",date:"",phase:"",status:"pending",created_from_pdf:true}])} style={{width:"100%",marginBottom:"12px",borderStyle:"dashed"}}>
+      <button className="btn btn-outline" onClick={() => setItems(p => [...p, { id:uid(), title:"", date:"", phase:"", status:"pending", created_from_pdf:true }])}
+        style={{ width:"100%", marginBottom:"12px", borderStyle:"dashed" }}>
         <PlusIc/> Aggiungi manuale
       </button>
       <div className="form-row">
-        <button className="btn btn-outline" onClick={()=>{setStage("upload");setItems([]);}}>← Indietro</button>
-        <button className="btn btn-accent" onClick={confirm} disabled={items.filter(t=>t.title.trim()).length===0} style={{flex:2}}>
-          Salva {items.filter(t=>t.title.trim()).length} attività
+        <button className="btn btn-outline" onClick={() => { setStage("upload"); setItems([]); }}>← Indietro</button>
+        <button className="btn btn-accent" onClick={confirm} disabled={items.filter(t => t.title.trim()).length === 0} style={{ flex:2 }}>
+          Salva {items.filter(t => t.title.trim()).length} attività
         </button>
       </div>
     </div>
   );
 
   return (
-    <div style={{padding:"22px 18px 100px"}}>
-      <h2 className="serif" style={{fontSize:"28px",fontStyle:"italic",marginBottom:"8px"}}>Carica PDF</h2>
-      <p style={{color:"var(--ink-3)",fontSize:"14px",marginBottom:"22px",lineHeight:1.6}}>
-        L'AI estrarrà le attività di <strong style={{color:"var(--ink)"}}>{user.name}</strong>
+    <div style={{ padding:"22px 18px 100px" }}>
+      <h2 className="serif" style={{ fontSize:"28px", fontStyle:"italic", marginBottom:"8px" }}>Carica PDF</h2>
+      <p style={{ color:"var(--ink-3)", fontSize:"14px", marginBottom:"22px", lineHeight:1.6 }}>
+        L'AI estrarrà le attività di <strong style={{ color:"var(--ink)" }}>{user.name}</strong>
       </p>
       <div className={`drop-zone ${drag?"on":""}`}
-        onDragOver={e=>{e.preventDefault();setDrag(true);}}
-        onDragLeave={()=>setDrag(false)}
-        onDrop={e=>{e.preventDefault();setDrag(false);process(e.dataTransfer.files[0]);}}
-        onClick={()=>fRef.current?.click()}
+        onDragOver={e => { e.preventDefault(); setDrag(true); }}
+        onDragLeave={() => setDrag(false)}
+        onDrop={e => { e.preventDefault(); setDrag(false); process(e.dataTransfer.files[0]); }}
+        onClick={() => fRef.current?.click()}
       >
-        <div style={{color:"var(--ink-3)",marginBottom:"12px"}}><UpIc/></div>
-        <p style={{fontWeight:500,fontSize:"16px",marginBottom:"5px"}}>Trascina il PDF qui</p>
-        <p style={{color:"var(--ink-3)",fontSize:"13px"}}>oppure tocca per scegliere</p>
-        <input ref={fRef} type="file" accept=".pdf" style={{display:"none"}} onChange={e=>process(e.target.files[0])}/>
+        <div style={{ color:"var(--ink-3)", marginBottom:"12px" }}><UpIc/></div>
+        <p style={{ fontWeight:500, fontSize:"16px", marginBottom:"5px" }}>Trascina il PDF qui</p>
+        <p style={{ color:"var(--ink-3)", fontSize:"13px" }}>oppure tocca per scegliere</p>
+        <input ref={fRef} type="file" accept=".pdf" style={{ display:"none" }} onChange={e => process(e.target.files[0])}/>
       </div>
-      {err&&<div style={{background:"var(--danger-bg)",color:"var(--danger)",padding:"11px 14px",borderRadius:"10px",fontSize:"13px",marginTop:"14px"}}>{err}</div>}
+      {err && <div style={{ background:"var(--danger-bg)", color:"var(--danger)", padding:"11px 14px", borderRadius:"10px", fontSize:"13px", marginTop:"14px" }}>{err}</div>}
 
-      <div style={{marginTop:"30px",display:"flex",flexDirection:"column",gap:"12px"}}>
-        {[["1","Carica il PDF del programma"],["2",`L'AI cerca "${user.name}"`],["3","Rivedi le attività"],["4","Conferma e salva"]].map(([n,t])=>(
-          <div key={n} style={{display:"flex",alignItems:"center",gap:"12px"}}>
-            <div style={{width:26,height:26,borderRadius:"50%",background:"var(--cream-2)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
-              <span className="mono" style={{fontSize:"11px"}}>{n}</span>
+      <div style={{ marginTop:"30px", display:"flex", flexDirection:"column", gap:"12px" }}>
+        {[["1","Carica il PDF del programma"],["2",`L'AI cerca "${user.name}"`],["3","Rivedi le attività"],["4","Conferma e salva"]].map(([n,t]) => (
+          <div key={n} style={{ display:"flex", alignItems:"center", gap:"12px" }}>
+            <div style={{ width:26, height:26, borderRadius:"50%", background:"var(--cream-2)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
+              <span className="mono" style={{ fontSize:"11px" }}>{n}</span>
             </div>
-            <span style={{fontSize:"14px",color:"var(--ink-2)"}}>{t}</span>
+            <span style={{ fontSize:"14px", color:"var(--ink-2)" }}>{t}</span>
           </div>
         ))}
       </div>
 
-      <div style={{marginTop:"22px",background:"var(--white)",border:"1px solid var(--border)",borderRadius:"12px",padding:"16px"}}>
-        <p className="mono" style={{fontSize:"10px",color:"var(--ink-4)",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:"10px"}}>Esempio</p>
-        <pre className="mono" style={{fontSize:"12px",color:"var(--ink-2)",lineHeight:1.9,whiteSpace:"pre-wrap"}}>{`Mario Rossi\n- Editing foto: 10 maggio\n- Consegna album: 20 maggio\n\nGiulia Bianchi\n- Revisione bozze: 15 maggio`}</pre>
-      </div>
-    </div>
-  );
+      <div style={{ marginTop:"22px", background:"var(--white)", border:"1px solid var(--border)", borderRadius:"12px", padding:"16px" }}>
+        <p className="mono" style={{ fontSize:"10px", color:"var(--ink-4)", textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:"10px" }}>Esempio</p>
+        <pre className="mono" style={{ fontSize:"12px", color:"var(--ink-2)", lineHeight:1.9, whiteSpace:"pre-wrap" }}>{`Mario Rossi\n- Editing foto: 10 maggio\n- Consegna album: 20 maggio\n\nGiulia Bianchi\n- Revisione bozze: 15 maggio`}</pre>
+
+```
+  </div>
+</div>
+```
+
+);
 }
 
-// ── APP ───────────────────────────────────────
+// ─────────────────────────────────────────────
+// APP ROOT
+// ─────────────────────────────────────────────
 function App() {
-  const [user,setUser]=useState(null);
-  const [tasks,setTasks]=useState([]);
-  const [tab,setTab]=useState("home");
-  const [toast,setToast]=useState(null);
+const [user,  setUser]  = useState(null);
+const [tasks, setTasks] = useState([]);
+const [tab,   setTab]   = useState(“home”);
+const [toast, setToast] = useState(null);
 
-  useEffect(()=>{ const me=DB.me(); if(me){setUser(me);setTasks(DB.tasks(me.id));} },[]);
+useEffect(() => {
+const me = DB.me();
+if (me) { setUser(me); setTasks(DB.tasks(me.id)); }
+}, []);
 
-  const showToast=m=>{setToast(m);setTimeout(()=>setToast(null),2300);};
-  const login=u=>{setUser(u);setTasks(DB.tasks(u.id));};
-  const logout=()=>{DB.logout();setUser(null);setTasks([]);setTab("home");};
-  const save=useCallback(t=>{setTasks(t);if(user)DB.setT(user.id,t);},[user]);
+const showToast = m => { setToast(m); setTimeout(() => setToast(null), 2300); };
 
-  const onToggle =id=>save(tasks.map(t=>t.id===id?{...t,status:t.status==="completed"?"pending":"completed"}:t));
-  const onDelete =id=>{save(tasks.filter(t=>t.id!==id));showToast("Eliminata");};
-  const onAdd    =t =>{save([...tasks,{id:uid(),status:"pending",created_from_pdf:false,...t}]);showToast("✓ Aggiunta");};
-  const onConfirm=ts=>{save([...tasks,...ts]);setTab("home");showToast(`✓ ${ts.length} attività salvate`);};
+const login  = u => { setUser(u); setTasks(DB.tasks(u.id)); };
+const logout = () => { DB.logout(); setUser(null); setTasks([]); setTab(“home”); };
 
-  if (!user) return <Auth onLogin={login}/>;
+const save = useCallback(t => {
+setTasks(t);
+if (user) DB.setT(user.id, t);
+}, [user]);
 
-  const tabs=[
-    {key:"home",  lbl:"Oggi",     ic:<TodayIc/>},
-    {key:"tasks", lbl:"Attività", ic:<ListIc/>},
-    {key:"pdf",   lbl:"PDF",      ic:<PDFIc/>},
-  ];
+const onToggle  = id => save(tasks.map(t => t.id===id ? {…t, status: t.status===“completed”?“pending”:“completed”} : t));
+const onDelete  = id => { save(tasks.filter(t => t.id !== id)); showToast(“Eliminata”); };
+const onAdd     = t  => { save([…tasks, { id:uid(), status:“pending”, created_from_pdf:false, …t }]); showToast(“✓ Aggiunta”); };
+const onConfirm = ts => { save([…tasks, …ts]); setTab(“home”); showToast(`✓ ${ts.length} attività salvate`); };
 
-  return (
-    <div className="app-shell">
-      {/* Top bar */}
-      <div className="top-bar">
-        <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
-          <div className="logo-mark">◈</div>
-          <span className="serif" style={{fontSize:"19px",fontStyle:"italic"}}>Planner</span>
-        </div>
-        <div style={{display:"flex",alignItems:"center",gap:"12px"}}>
-          <span style={{fontSize:"13px",color:"var(--ink-3)"}}>{user.name}</span>
-          <button className="btn btn-ghost" onClick={logout} style={{padding:"6px"}}><LogoutIc/></button>
-        </div>
-      </div>
+if (!user) return <Auth onLogin={login}/>;
 
-      {/* Page */}
-      <div className="page-scroll" key={tab}>
-        {tab==="home" &&<Dashboard user={user} tasks={tasks} onToggle={onToggle} onDelete={onDelete} onAddTask={onAdd}/>}
-        {tab==="tasks"&&<AllTasks  tasks={tasks} onToggle={onToggle} onDelete={onDelete}/>}
-        {tab==="pdf"  &&<PDFView   user={user} onConfirmed={onConfirm}/>}
-      </div>
+const tabs = [
+{ key:“home”,  lbl:“Oggi”,     ic:<TodayIc/> },
+{ key:“tasks”, lbl:“Attività”, ic:<ListIc/>  },
+{ key:“pdf”,   lbl:“PDF”,      ic:<PDFIc/>   },
+];
 
-      {/* Nav */}
-      <nav className="bottom-nav">
-        {tabs.map(t=>(
-          <button key={t.key} className={`nav-btn ${tab===t.key?"active":""}`} onClick={()=>setTab(t.key)}>
-            {t.ic}{t.lbl}
-          </button>
-        ))}
-      </nav>
+return (
+<div className="app-shell">
+{/* Top bar */}
+<div className="top-bar">
+<div style={{ display:“flex”, alignItems:“center”, gap:“10px” }}>
+<div className="logo-mark">◈</div>
+<span className=“serif” style={{ fontSize:“19px”, fontStyle:“italic” }}>Planner</span>
+</div>
+<div style={{ display:“flex”, alignItems:“center”, gap:“12px” }}>
+<span style={{ fontSize:“13px”, color:“var(–ink-3)” }}>{user.name}</span>
+<button className=“btn btn-ghost” onClick={logout} style={{ padding:“6px” }}><LogoutIc/></button>
+</div>
+</div>
 
-      {toast&&<div className="toast">{toast}</div>}
-    </div>
-  );
+```
+  {/* Page content */}
+  <div className="page-scroll" key={tab}>
+    {tab === "home"  && <Dashboard user={user} tasks={tasks} onToggle={onToggle} onDelete={onDelete} onAddTask={onAdd}/>}
+    {tab === "tasks" && <AllTasks  tasks={tasks} onToggle={onToggle} onDelete={onDelete}/>}
+    {tab === "pdf"   && <PDFView   user={user} onConfirmed={onConfirm}/>}
+  </div>
+
+  {/* Bottom nav */}
+  <nav className="bottom-nav">
+    {tabs.map(t => (
+      <button key={t.key} className={`nav-btn ${tab===t.key?"active":""}`} onClick={() => setTab(t.key)}>
+        {t.ic}{t.lbl}
+      </button>
+    ))}
+  </nav>
+
+  {toast && <div className="toast">{toast}</div>}
+</div>
+```
+
+);
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+ReactDOM.createRoot(document.getElementById(“root”)).render(<App/>);
 </script>
-  <script type="text/babel">
-const { useState, useEffect, useRef, useCallback } = React;
 
-// ── STORAGE ───────────────────────────────────
-const DB = {
-  users:   ()    => JSON.parse(localStorage.getItem("pl_u")   || "[]"),
-  setU:    (u)   => localStorage.setItem("pl_u",  JSON.stringify(u)),
-  tasks:   (id)  => JSON.parse(localStorage.getItem(`pl_t_${id}`) || "[]"),
-  setT:    (id,t)=> localStorage.setItem(`pl_t_${id}`, JSON.stringify(t)),
-  me:      ()    => JSON.parse(localStorage.getItem("pl_me")  || "null"),
-  setMe:   (u)   => localStorage.setItem("pl_me", JSON.stringify(u)),
-  logout:  ()    => localStorage.removeItem("pl_me"),
-};
-
-const uid     = () => `${Date.now()}-${Math.random().toString(36).slice(2,6)}`;
-const todayS  = () => new Date().toISOString().split("T")[0];
-const fmtDate = d => d ? new Date(d+"T00:00:00").toLocaleDateString("it-IT",{day:"numeric",month:"short"}) : null;
-const classify = (date, status) => {
-  if (status==="completed") return "done";
-  if (!date) return "soon";
-  const t = todayS();
-  return date < t ? "overdue" : date === t ? "today" : "soon";
-};
-const HOUR = new Date().getHours();
-const gday = HOUR<5?"Buonanotte":HOUR<12?"Buongiorno":HOUR<18?"Buon pomeriggio":"Buonasera";
-
-// ── TELEGRAM ────────────────────────────────
-async function sendTelegramMessage(text) {
-  const botToken = "8799223755:AAHFExFqyKnvapg6khfNU5FU1e3_ShgEhCU";
-  const chatId   = "1775580628";
-  const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-  try {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, text: text })
-    });
-    const data = await res.json();
-    console.log("Telegram response:", data);
-  } catch (err) {
-    console.error("Telegram error:", err);
-  }
-}
-
-// Invia notifica quando viene aggiunto un task
-function notifyNewTask(task) {
-  sendTelegramMessage(`Nuovo task aggiunto: "${task.title}"${task.date ? " per il " + task.date : ""}`);
-}
-
-// ── TASK CARD ───────────────────────────────
-function TaskCard({ task, onToggle, onDelete, delay=0 }) {
-  const s = classify(task.date, task.status);
-  const chipMap={today:{cls:"chip-today",lbl:"Oggi"},overdue:{cls:"chip-overdue",lbl:"Scaduto"},soon:{cls:"chip-soon",lbl:"In arrivo"},done:{cls:"chip-done",lbl:"Fatto"}};
-  const ch = chipMap[s];
-  return (
-    <div className={`task-card ${s} anim-fade-up`} style={{animationDelay:`${delay}ms`}}>
-      <div style={{display:"flex",alignItems:"flex-start",gap:"13px"}}>
-        <div className={`task-check ${task.status==="completed"?"checked":""}`} onClick={()=>onToggle(task.id)}>
-          {task.status==="completed"&&<CheckIc/>}
-        </div>
-        <div style={{flex:1,minWidth:0}}>
-          <p className={`task-title ${task.status==="completed"?"done":""}`}>{task.title}</p>
-          <div className="task-meta">
-            <span className={`chip ${ch.cls}`}>{ch.lbl}</span>
-            {fmtDate(task.date)&&<span className="date-label">{fmtDate(task.date)}</span>}
-            {task.phase&&<span style={{fontSize:"12px",color:"var(--ink-4)"}}>· {task.phase}</span>}
-            {task.created_from_pdf&&<span className="chip chip-pdf">PDF</span>}
-          </div>
-        </div>
-        <button className="btn btn-ghost" onClick={()=>onDelete(task.id)} style={{padding:"5px",marginTop:"-1px",opacity:0.45,borderRadius:"8px"}}>
-          <TrashIc/>
-        </button>
-      </div>
-    </div>
-  );
-}
-
-// ── DASHBOARD ───────────────────────────────
-function Dashboard({ user, tasks, onToggle, onDelete, onAddTask }) {
-  const [modal,setModal]=useState(false);
-  const [title,setTitle]=useState(""); const [date,setDate]=useState("");
-
-  const todayT   = tasks.filter(t=>t.status!=="completed"&&classify(t.date,t.status)==="today");
-  const overdueT = tasks.filter(t=>t.status!=="completed"&&classify(t.date,t.status)==="overdue");
-  const soonT    = tasks.filter(t=>t.status!=="completed"&&classify(t.date,t.status)==="soon").sort((a,b)=>(a.date||"z").localeCompare(b.date||"z")).slice(0,6);
-  const doneC    = tasks.filter(t=>t.status==="completed").length;
-
-  const doAdd = () => {
-    if (!title.trim()) return;
-    const newTask = {title:title.trim(),date:date||null,phase:null,created_from_pdf:false};
-    onAddTask(newTask);
-    notifyNewTask(newTask); // ✅ invio Telegram qui
-    setTitle(""); setDate(""); setModal(false);
-  };
-
-  return (
-    <div> 
-      {/* resto del dashboard come prima */}
-    </div>
-  );
-}
-
-// ── APP ─────────────────────────────────────
-function App() {
-  const [user,setUser]=useState(DB.me());
-  const [tasks,setTasks]=useState(user?DB.tasks(user.id):[]);
-
-  const addTask = (task) => {
-    const t = [...tasks,{id:uid(),status:"pending",...task}];
-    setTasks(t); DB.setT(user.id,t);
-  };
-
-  const toggleTask = (id) => {
-    const t = tasks.map(x=>x.id===id?{...x,status:x.status==="completed"?"pending":"completed"}:x);
-    setTasks(t); DB.setT(user.id,t);
-  };
-
-  const deleteTask = (id) => {
-    const t = tasks.filter(x=>x.id!==id);
-    setTasks(t); DB.setT(user.id,t);
-  };
-
-  return user
-    ? <Dashboard user={user} tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} onAddTask={addTask} />
-    : <Auth onLogin={u=>{setUser(u); setTasks(DB.tasks(u.id));}} />;
-}
-
-ReactDOM.render(<App/>, document.getElementById("root"));
-</script>
 </body>
 </html>
